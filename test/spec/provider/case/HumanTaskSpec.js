@@ -19,10 +19,6 @@ function getInput(container, selector) {
   return domQuery('input[name=' + selector + ']', container);
 }
 
-function getClearButton(container, selector) {
-  return domQuery('div[data-entry=' + selector + '] button[data-action=clear]', container);
-}
-
 
 describe('human-task-properties', function() {
 
@@ -243,7 +239,6 @@ describe('human-task-properties', function() {
       });
 
     });
-    
   });
 
 

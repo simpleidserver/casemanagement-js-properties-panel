@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - node
+
+script:
+  - npm run all
+
+before_install:
+  - npm install -g wiredeps
+  - wiredeps --branch=$TRAVIS_BRANCH --tag=$TRAVIS_TAG --verbose
