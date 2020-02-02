@@ -1,0 +1,328 @@
+@import "./_variables";
+@import "./_mixins";
+
+@font-face {
+  font-family: 'cmmn-js-pp';
+  src: url(@font-eot);
+  src: url(@font-eot) format('embedded-opentype'),
+       url(@font-woff) format('woff'),
+       url(@font-ttf) format('truetype'),
+       url(@cpp-font-svg) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.cpp-properties-panel {
+  .overlay();
+  position: relative;
+
+  &:empty {
+    display: none;
+  }
+
+  label,
+  input {
+    vertical-align: middle;
+  }
+
+
+  input,
+  button,
+  textarea,
+  [contenteditable] {
+    padding: 3px 6px;
+    border: 1px solid @cpp-color-gray-light;
+
+    &:focus {
+      .focus();
+    }
+
+    &.invalid {
+      .invalid();
+      &:focus {
+        box-shadow: 0 0 1px 2px fade(@cpp-color-error, 20%);
+      }
+    }
+
+    &.warning {
+      &:focus {
+        .warning();
+        box-shadow: 0 0 1px 2px fade(@cpp-color-warning, 20%);
+      }
+    }
+  }
+
+
+  [type=text],
+  [contenteditable],
+  textarea,
+  select {
+    width: 100%;
+  }
+
+  [contenteditable],
+  textarea {
+    resize: vertical;
+  }
+
+  [contenteditable] {
+    outline: 0px solid transparent;
+    background-color: white;
+
+    overflow-y: auto;
+
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+  }
+
+  label {
+    .label();
+  }
+
+  .entry-label {
+    .label();
+    font-size: 120%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    transition: margin 0.218s linear;
+    font-style: italic;
+
+    &.divider {
+      border-top: 1px dotted #ccc;
+      padding-top: 8px;
+      margin-top: 16px;
+      width: 100%;
+    }
+  }
+
+  button {
+    .action-button();
+  }
+}
+
+.cpp-warning-message {
+  color: @cpp-color-warning;
+}
+
+.cpp-error-message,
+.cpp-error-message.cpp-entry-link {
+  color: @cpp-color-error;
+}
+
+.cpp-row {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  &:first-of-type {
+    margin-top: 0;
+  }
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.cpp-action {
+  button {
+    position: relative;
+    margin-left: 10px;
+  }
+}
+
+.cpp-textfield,
+.cpp-textbox {
+  margin-bottom: 3px;
+}
+
+.cpp-radios-group {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 9px 0;
+
+  .cpp-radio-wrapper {
+    margin: 6px 0;
+  }
+
+  input,
+  label {
+    vertical-align: middle;
+  }
+
+  input {
+    margin-top: 0;
+    margin-left: 0;
+  }
+}
+
+.cpp-radios-group,
+.cpp-checkbox {
+  input {
+    margin-left: 0;
+  }
+
+  label {
+    &:after {
+      display: none;
+    }
+  }
+}
+
+.cpp-textfield {
+  input {
+    padding-right: 28px;
+  }
+
+  .clear {
+    background: transparent;
+    border: none;
+    top: 0;
+    right: 0;
+  }
+}
+
+.cpp-combo-input {
+  margin-top: 7px;
+}
+
+.cpp-select {
+  select {
+    height: 23px;
+  }
+  button.add {
+    top: -22px;
+    right: 0;
+  }
+}
+
+.cpp-select,
+.cpp-element-list {
+
+  button {
+    &.add,
+    &.clear {
+      top: -23px;
+      border-bottom: none;
+    }
+  }
+
+  button.add {
+    right: 0px;
+  }
+
+  button.clear {
+    right: 23px;
+  }
+}
+
+.cpp-properties-entry {
+  margin-bottom: 9px;
+
+  .cpp-field-wrapper {
+    position: relative;
+
+    input[readonly] + .clear {
+      display: none;
+    }
+  }
+}
+
+.cpp-hidden {
+  display: none;
+}
+
+label.cpp-hidden {
+  .cpp-hidden;
+}
+
+.cpp-table-add-row {
+  > button {
+    position: relative;
+    margin-left: 10px;
+  }
+}
+
+.cpp-table {
+  margin-top: 10px;
+}
+
+.cpp-table-row {
+  margin-bottom: 2px;
+  overflow: hidden;
+
+  > input,
+  > button {
+    float: left;
+  }
+
+  > label {
+    padding-left: 5px;
+  }
+
+  > label,
+  > input {
+
+    &.cpp-table-row-columns-1 {
+      width: 100%;
+      &.cpp-table-row-removable {
+        width: ~"calc(100% - 24px)";
+      }
+    }
+
+    &.cpp-table-row-columns-2 {
+      width: 50%;
+      &.cpp-table-row-removable {
+        width: ~"calc(50% - 12px)";
+      }
+      &:nth-child(2) {
+        border-left: none;
+      }
+    }
+  }
+
+  > button {
+    border-left: none;
+    position: static;
+  }
+}
+
+.cpp-properties-static {
+  margin-bottom: 0;
+  margin-top: 0;
+  border: 1px solid @cpp-color-gray-light;
+  background-color: white;
+  padding: 3px 6px;
+  font: 13.3333px Arial;
+  width: 100%;
+}
+
+.cpp-entry-hint,
+.cpp-entry-link {
+  cursor: pointer;
+  color: @cpp-color-primary;
+}
+
+.cpp-icon-warning:before {
+  .icon-font();
+  content: '\E806';
+}
+
+.cpp-field-description {
+  margin-top: 5px;
+  color: #999;
+
+  a {
+    color: darken(@cpp-color-primary, 10%);
+    text-decoration: none;
+
+    &:hover {
+      color: @cpp-color-primary;
+    }
+  }
+}
+
+
+@import "./header";
+@import "./groups";
+@import "./tabs";

@@ -1,0 +1,90 @@
+.cpp-properties-tab-bar {
+  border-bottom: 1px solid @cpp-color-gray-light;
+  padding: 0 15px;
+
+  .scroll-tabs-button {
+    cursor: pointer;
+    font-size: 16px;
+    padding: 3px 4px 3px 4px;
+    color: @cpp-color-gray;
+
+    &:hover {
+      font-weight: bold;
+    }
+
+    &.scroll-tabs-left {
+      float: left;
+      margin-left: -15px;
+    }
+
+    &.scroll-tabs-right {
+      float: right;
+      margin-right: -15px;
+    }
+  }
+
+  &:not(.scroll-tabs-overflow) {
+    .scroll-tabs-button {
+      display: none;
+    }
+  }
+}
+
+ul.cpp-properties-tabs-links {
+  margin: 5px 0 -1px 0;
+  padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
+
+  > li {
+    display: inline-block;
+    margin: 0;
+
+    &.cpp-hidden {
+      .cpp-hidden;
+    }
+
+    > a {
+      display: inline-block;
+
+      font-size: 12px;
+      padding: 4px 7px;
+
+      border: 1px solid @cpp-color-gray-light;
+      border-radius: 3px 3px 0 0;
+      border-bottom: transparent;
+
+      background-color: @cpp-color-gray-lighter;
+      color: @cpp-color-gray;
+
+      text-decoration: none;
+
+      &:hover {
+        color: darken(@cpp-color-gray, 10%);
+      }
+    }
+  }
+
+  > li + li {
+    margin-left: 4px;
+  }
+
+  > li.cpp-active {
+
+    a {
+      padding-bottom: 5px;
+
+      border-top: 2px solid @cpp-color-primary;
+      border-bottom: none;
+    }
+  }
+}
+
+.cpp-properties-tab,
+.cpp-properties-tab.cpp-hidden {
+  display: none;
+}
+
+.cpp-properties-tab.cpp-active {
+  display: block;
+}

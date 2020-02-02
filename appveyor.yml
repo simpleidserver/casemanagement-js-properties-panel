@@ -1,0 +1,11 @@
+version: 1.0.{build}
+environment:
+  nodejs_version: 8
+install:
+- ps: >-
+    Install-Product node $env:nodejs_version
+
+    npm install --loglevel=error
+build: off
+test_script:
+- ps: npm run test
