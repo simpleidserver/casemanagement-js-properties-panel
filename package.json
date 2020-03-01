@@ -1,6 +1,6 @@
 {
   "name": "casemanagement-js-properties-panel",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple properties panel for cmmn-js",
   "scripts": {
     "lint": "eslint .",
